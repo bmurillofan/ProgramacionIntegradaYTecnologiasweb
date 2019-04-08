@@ -1,0 +1,27 @@
+{
+  "name": "entusmanos",
+  "version": "1.0.0",
+  "description": "Evaluador de actitudes Ciudadanas",
+  "main": "index.html",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmurillofan/ProgramacionIntegradaYTecnologiasweb.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "angularjs"
+  ],
+  "author": "Brayan Stiven Murillo Fandiño",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bmurillofan/ProgramacionIntegradaYTecnologiasweb/issues"
+  },
+  "homepage": "https://github.com/bmurillofan/ProgramacionIntegradaYTecnologiasweb#readme",
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}
