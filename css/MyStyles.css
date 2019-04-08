@@ -12,3 +12,19 @@ img {
     50% { -webkit-transform: rotate(-6deg); }
     100% { -webkit-transform: rotate(6deg); }
 }
+
+
+input.ng-invalid {
+	background-color: #ba616152;
+}
+
+input.ng-valid {
+	background-color: #77ba6152;
+}
+
+
+button:disabled {
+	background-color: #8a8a8a;
+	color: darkgrey;
+	cursor: not-allowed;
+}
