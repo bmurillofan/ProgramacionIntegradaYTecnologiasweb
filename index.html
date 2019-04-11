@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>En tus manos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 
-	<!--=============================Iconos==========================================-->	
+	<!--=============================Iconos==========================================-->
 	<!--Favicon-->
-	<link rel="icon" type="image/png" href="images/icons/EnTusManos.png"/>
+	<link rel="icon" type="image/png" href="images/icons/EnTusManos.png" />
 	<!--=============================================================================-->
 
 
@@ -23,21 +24,26 @@
 	<!--=============================================================================-->
 
 
-	<!--============================= MyStyles=======================================-->	
+	<!--============================= MyStyles=======================================-->
 	<link rel="stylesheet" type="text/css" href="css/MyStyles.css">
 	<!--=============================================================================-->
-	
 
-	<!--=============================Controller=======================================-->	
+
+	<!--=============================Controller=======================================-->
 	<script src="controller/home_controller.js"></script>
 	<!--=============================================================================-->
-	
-<!--=============================================================================-->
+
+	<!--=============================================================================-->
 </head>
-<body ng-app="home"  ng-controller="home_Controller">
-	
+
+<body ng-app="home" ng-controller="home_Controller">
+
 	<div class="limiter">
+
 		<div class="container-login100">
+			<!-- <div class="alert alert-primary" role="alert">
+				 <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+			</div> -->
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img class="thumb" src="images/EnTusManosLogo.png" alt="IMG">
@@ -45,32 +51,34 @@
 
 				<form novalidate name="loginForm" class="login100-form validate-form">
 					<span class="login100-form-title">
-						En tus Manos
+						En sus Manos
 					</span>
 
 					<div class="wrap-input100 validate-input">
-						<input ng-model="usuarioID" required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" class="input100" type="text" name="nombre" placeholder="User ID">
+						<input ng-model="usuarioID" required class="input100" type="email" name="nombre" placeholder="Correo de Usuario">
 						<span class="focus-input100" style="color:{{ loginForm.nombre.$valid ? '#77ba61' : '#ba6161' }}"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-id-card" style="color:{{ loginForm.nombre.$valid ? '#77ba61' : '#ba6161' }}" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{5,10}$" ng-model="contrasena" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}" required class="input100" type="password" name="contrasena" placeholder="Contraseña">
 						<span class="focus-input100" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}" aria-hidden="true"></i>
 						</span>
 					</div>
+					<div class="alert alert-warning" style="top: 2px; left: 4px; position: fixed;display: {{ logStatus.init ? 'block' : 'none'}}" role="alert">
+						Usuario o Contraseña Invalidos
+					</div>
 					<div class="container-login100-form-btn">
-						<button ng-disabled="loginForm.$invalid" type="submit" class="login100-form-btn">
+						<button ng-disabled="loginForm.$invalid" ng-click="$gui.login(usuarioID,contrasena)" class="login100-form-btn">
 							Ingresar
 						</button>
 					</div>
-
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
+						<a class="txt2">
 							Crear una nueva cuenta
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
@@ -91,7 +99,7 @@
 
 
 	<!--================================Script=======================================-->
-	<script >
+	<script>
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
@@ -99,4 +107,5 @@
 	<!--=============================================================================-->
 
 </body>
+
 </html>

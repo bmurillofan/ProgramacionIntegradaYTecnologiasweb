@@ -6,12 +6,12 @@
 
 /*------------------------------- Area Modulo Controller --------------------------------*/
 // angular.module se compone de ('Nombre del modulo',[dependencias]) Inyectables
-var app = angular.module("home", []);
+var app = angular.module("dashboard", []);
 /*------------------------------- Area Modulo Controller --------------------------------*/
 
 /*------------------------------- Area Modulo Controller --------------------------------*/
 //.controller ('Nombre Controller', directiva en function($scope)) Inyectables
-app.controller('home_Controller', function($scope, $timeout, $rootScope, $http) {
+app.controller('dashboard_Controller', function($scope, $timeout, $rootScope, $http) {
 
 
   /*--------------------------    Area de Declaracion     ------------------------------*/
