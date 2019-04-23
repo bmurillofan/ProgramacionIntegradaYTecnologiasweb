@@ -61,9 +61,8 @@
 							<i class="fa fa-id-card" style="color:{{ loginForm.nombre.$valid ? '#77ba61' : '#ba6161' }}" aria-hidden="true"></i>
 						</span>
 					</div>
-
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{5,10}$" ng-model="contrasena" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}" required class="input100" type="password" name="contrasena" placeholder="Contraseña">
+						<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{5,20}$" ng-model="contrasena" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}" required class="input100" type="password" name="contrasena" placeholder="Contraseña">
 						<span class="focus-input100" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" style="color:{{ loginForm.contrasena.$valid ? '#77ba61' : '#ba6161' }}" aria-hidden="true"></i>
@@ -72,8 +71,11 @@
 					<div class="alert alert-warning" style="top: 2px; left: 4px; position: fixed;display: {{ logStatus.init ? 'block' : 'none'}}" role="alert">
 						Usuario o Contraseña Invalidos
 					</div>
+					<div class="alert alert-danger" style="top: 2px; left: 4px; position: fixed;display: {{ logStatus.onLogin ? 'block' : 'none'}}" role="alert">
+						Error en Servidor
+					</div>
 					<div class="container-login100-form-btn">
-						<button ng-disabled="loginForm.$invalid" ng-click="$gui.login(usuarioID,contrasena)" class="login100-form-btn">
+						<button ng-disabled="loginForm.$invalid || logStatus.onLogin" ng-click="$gui.login(usuarioID,contrasena)" class="login100-form-btn">
 							Ingresar
 						</button>
 					</div>

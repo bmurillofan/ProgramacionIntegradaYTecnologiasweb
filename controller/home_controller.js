@@ -29,7 +29,7 @@ app.controller('home_Controller', function($scope, $timeout, $rootScope, $http) 
 
       var dataService = $http({
         method: 'POST',
-        url: 'http://localhost:8084/EnSusManos-1.0.0/v1/ciudadano',
+        url: 'http://localhost:8084/EnSusManos/v1/ciudadano',
         data: {
           correo: id,
           contrasenia: pass
@@ -40,16 +40,19 @@ app.controller('home_Controller', function($scope, $timeout, $rootScope, $http) 
       });
 
       dataService.then(function(response) {
-        if (response.data.data == 'Usuario o contraseña invalidos.') {
+        $scope.logStatus.onLogin = false;
+        if (response && response.data && response.data.tokenSession) {
+          document.cookie = "session=true";
+          document.cookie = "correo=" + $scope.usuarioID;
+          window.location.replace("http://localhost:8081/examples/dashboard.html");
+        } else {
           $scope.logStatus.init = true;
           $timeout(function() {
             $scope.logStatus.init = false;
           }, 2000);
-        } else {
-          document.cookie = "session=true";
-          window.location.replace("http://localhost:8081/examples/dashboard.html");
         }
       }, function(response) {
+        $scope.logStatus.onLogin = true;
         console.log("Error 500");
       });
     }
