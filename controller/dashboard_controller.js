@@ -9,6 +9,52 @@
 var app = angular.module("dashboard", []);
 /*------------------------------- Area Modulo Controller --------------------------------*/
 
+app.directive('gnModal', function() {
+    return {
+        restrict: 'E',
+        priority: 100,
+        terminal: true,
+        templateUrl: '../html/modal.html',
+        replace: true,
+        scope: {
+            data: '=',
+            ngIf: '=',
+            power: '='
+        },
+        transclude: false,
+        controller: function($scope, $element, $attrs, $transclude, $timeout) {
+
+            $scope.$CONFIG = {
+                copy: {
+                    color: ''
+                }
+            };
+
+            $scope.$STATE = {
+                oprimir: false
+            };
+
+            $scope.$EXECUTE = {
+                select: function() {
+                    $scope.$STATE.oprimir = true;
+                    let copyText = document.querySelector("#jsonArea");
+                    copyText.select();
+                    document.execCommand("copy");
+                    $scope.$CONFIG.copy.color = 'rgb(106, 230, 152)';
+                },
+                carga: function() {
+                    $scope.$TEMP = {
+                        restData: $scope.data
+                    };
+                    $scope.power = false;
+                }
+            };
+
+            $scope.$EXECUTE.carga();
+        }
+    }
+});
+
 /*------------------------------- Area Modulo Controller --------------------------------*/
 //.controller ('Nombre Controller', directiva en function($scope)) Inyectables
 app.controller('dashboard_Controller', function($scope, $timeout, $rootScope, $http, $filter) {
